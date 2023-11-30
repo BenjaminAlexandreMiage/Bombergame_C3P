@@ -5,6 +5,26 @@ Class {
 }
 
 { #category : #tests }
+SituationTest >> testBasicMoveInformation [
+
+	| board position |
+	board := BombermanBoard createWithBoard:
+		         ((MygLevelImporter
+			          fromString: '#@  $#'
+			          fromPackage: BombermanBoard package) do: [ :each | each configured ]).
+		
+	position := board player position.
+	self assert: (board player move: CpDirection east).
+	"The player has moved!"
+	"No check that the player position is correct."
+	self
+		assert: board player position x
+		equals: (CpDirection east * position) x.
+	self assert: board player position x equals: 3.
+	self assert: board asciiString equals: '# @ $#'
+]
+
+{ #category : #tests }
 SituationTest >> testPlayerMoveBox [
 
 	| board position player |

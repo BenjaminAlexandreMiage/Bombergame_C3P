@@ -7,20 +7,21 @@ Class {
 { #category : #data }
 StructuralBoardTest >> map [
 
-^'######
-#@$  #
-#$   #
-######'	
+^	'######
+	 #@$  #
+	 #$   #
+	 ######
+	'
 ]
 
-{ #category : #' tests' }
+{ #category : #tests }
 StructuralBoardTest >> testBoardHeight [
 
 	|board|
 	
 	board := BombermanBoard  createWithBoard:
 						((MygLevelImporter
-			          	fromString: '#@  #'
+			          	fromString: '#@  # '
 			          	fromPackage: BombermanBoard  package) collect: [ :each | each configured ]).
 				
 	self assert: board height equals: 1.
@@ -40,6 +41,20 @@ StructuralBoardTest >> testBoardWidth [
 ]
 
 { #category : #'tests-building' }
+StructuralBoardTest >> testNotPlayerPosition [
+
+	|board|
+
+	board := BombermanBoard  createWithBoard:
+						((MygLevelImporter
+			          	fromString: self map
+			          	fromPackage: BombermanBoard  package) collect: [ :each | each configured ]).
+				
+			self assert: board player position x not equals: 7.
+			self assert: board player position y not equals: 9
+]
+
+{ #category : #'tests-building' }
 StructuralBoardTest >> testPlayerPosition [
 
 	|board|
@@ -51,6 +66,7 @@ StructuralBoardTest >> testPlayerPosition [
 				
 			self assert: board player position x equals: 2.
 			self assert: board player position y equals: 2.
+			self assert: board player position x equals: 2.
 ]
 
 { #category : #'tests-building' }

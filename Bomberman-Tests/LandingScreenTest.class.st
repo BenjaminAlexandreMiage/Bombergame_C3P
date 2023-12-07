@@ -26,6 +26,7 @@ LandingScreenTest >> testMenuHelp [
 
     self assert: menu label text equals: 'Help'.
     self assert: menu icon inner equals: (Smalltalk ui icons iconNamed: #glamorousHelp).
+]
 
 { #category : #' tests' }
 LandingScreenTest >> testMenuBarLayoutConstraints [

@@ -15,6 +15,13 @@ BombermanElement class >> textualMapCharacter [
 	^ $Z
 ]
 
+{ #category : #printing }
+BombermanElement >> basicPosition: aPosition [
+	"A position is a x,y kind of object."
+	
+	position := aPosition
+]
+
 { #category : #initialization }
 BombermanElement >> configured [ 
 
@@ -24,4 +31,12 @@ BombermanElement >> configured [
 { #category : #testing }
 BombermanElement >> isPlayer [
 	^ false
+]
+
+{ #category : #printing }
+BombermanElement >> printOn: aStream [ 
+
+	super printOn: aStream.
+	aStream nextPut: $-.
+	position printOn: aStream
 ]

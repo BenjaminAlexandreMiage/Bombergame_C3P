@@ -9,3 +9,10 @@ BombermanBox class >> textualMapCharacter [
 	
 	^ $$
 ]
+
+{ #category : #accessing }
+BombermanBox >> backgroundRepresentation [
+
+	^ BombermanBoxElement boxIcon 
+
+]

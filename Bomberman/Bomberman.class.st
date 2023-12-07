@@ -61,13 +61,13 @@ Bomberman class >> open [
 	| space  helpMenu bar title |
 		helpMenu := self menuHelp.
 		bar := self menuBar.
-title := self title.
-	space := BlSpace new.
-space root addChild: title.
-bar addMenu: helpMenu.
-	space root addChild: bar.
-	space extent: 300 @ 300.
-	space show
+      title := self title.
+	   space := BlSpace new.
+      space root addChild: title.
+      bar addMenu: helpMenu.
+	   space root addChild: bar.
+	   space extent: 300 @ 300.
+	   space show
 ]
 
 { #category : #accessing }

@@ -9,3 +9,16 @@ BombermanWall class >> textualMapCharacter [
 
 	^ $#
 ]
+
+{ #category : #accessing }
+BombermanWall >> backgroundRepresentation [
+
+	^ BombermanBoxElement wallIcon
+]
+
+{ #category : #accessing }
+BombermanWall >> bringIn: anActor going: aDirection [
+	"anActor does not move in a wall. Nothing enter a wall."
+	
+	^ false
+]

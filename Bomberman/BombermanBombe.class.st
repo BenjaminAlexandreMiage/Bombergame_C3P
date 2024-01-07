@@ -37,3 +37,19 @@ BombermanBombe >> exploseNeighbors [
 	self explose: (self board atColumn: positionBombe x atRow: positionBombe y+1).
 	self explose: (self board atColumn: positionBombe x atRow: positionBombe y-1).
 ]
+
+{ #category : #'as yet unclassified' }
+BombermanBombe >> placeBombEvent [ 
+    | playerPosition bomb delay |
+    
+    playerPosition := self board player position.
+    bomb := BombermanBombe new.
+
+    self board atColumn: playerPosition x atRow: playerPosition y put: bomb.
+
+    delay := Delay forSeconds: 3.
+
+    delay wait.
+    bomb explose.
+
+]

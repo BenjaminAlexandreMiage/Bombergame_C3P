@@ -11,11 +11,14 @@ BombermanBombe class >> textualMapCharacter [
 
 { #category : #'as yet unclassified' }
 BombermanBombe >> explose [ 
-	
-	|previousPosition|
+    | previousPosition |
 
-	previousPosition := self position.
-	self board atColumn: previousPosition x atRow: previousPosition y put: BombermanGround new .
+    previousPosition := self position.
+
+    self board atColumn: previousPosition x atRow: previousPosition y put: BombermanGround new.
+
+    self exploseNeighbors.
+
 ]
 
 { #category : #'as yet unclassified' }

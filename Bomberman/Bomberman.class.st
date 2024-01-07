@@ -116,6 +116,7 @@ Bomberman >> manageEvent: anEvent [
 	(touche = 'UP') ifTrue: [ ^self upEvent  ].
 	(touche = 'RIGHT') ifTrue: [ ^self rightEvent ].
 	(touche = 'LEFT') ifTrue: [ ^self leftEvent ].
+	(touche = 'SPACE') ifTrue: [ ^self placeBombEvent ].  
 ]
 
 { #category : #'instance creation' }
@@ -162,6 +163,26 @@ Bomberman >> rightEvent [
 	self rechargeBoard.
 	
 	space show.
+]
+
+{ #category : #'as yet unclassified' }
+Bomberman >> spaceEvent [ 
+    | playerPosition bomb delay |
+
+    playerPosition := board player position.
+    bomb := BombermanBombe new.
+
+    board atColumn: playerPosition x atRow: playerPosition y put: bomb.
+
+    delay := Delay forSeconds: 3.
+
+    [delay wait. bomb explose] fork.
+
+    self rechargeBoard.
+
+    space show.
+
+
 ]
 
 { #category : #accessing }
